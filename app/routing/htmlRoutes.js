@@ -22,7 +22,30 @@ module.exports = (function() {
         scores: req.body.scores
     }
 
-    
+    var friendSums = [];
+
+    //friend match is lowest number in friendSums
+
+    for (var i=0; i < friends.length; i++){
+      let friendScores = parseInt(friends[i].scores);
+      let incomingUserScores = parseInt(incomingUser.scores)
+      let sumArr = [];
+      if (friendScores[i] === incomingUserScores[i]){
+        sumArr.push(friendScores[i]);
+      } else if (friendScores[i] > incomingUserScores[i]) {
+        sumArr.push(friendScores[i] - incomingUserScores[i]);
+      } else if (incomingUserScores[i] > friendScores[i]){
+        sumArr.push(incomingUserScores[i] - friendScores[i]);
+      }
+
+      //adding together array of scores
+      let sum = sumArr.reduce(function(sum, value) {
+        return sum + value;
+      }, 0);
+
+      friendSums.push(sum);
+
+    }
 
     var match = {};
 
