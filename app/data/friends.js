@@ -1,7 +1,6 @@
 var friends = [
     {
         name:"Nathaniel",
-        photo:"",
         scores:[
             4,
             2,
@@ -17,7 +16,6 @@ var friends = [
     },
     {
         name: "Bertram",
-        photo: "",
         scores:[
             3,
             4,
@@ -33,7 +31,6 @@ var friends = [
     },
     {
         name: "Jackie",
-        photo: "",
         scores:[
             1,
             2,
@@ -48,8 +45,7 @@ var friends = [
         ]
     },
     {
-        name: "John",
-        photo: "",
+        name: "Kingsley",
         scores:[
             2,
             4,

@@ -4,18 +4,24 @@ var friends = require('../data/friends.js')
 
 module.exports = (function() {
     
-      var app = express.Router();
+      var api = express.Router();
     
-      app.get("/api/friends", function(req, res) {
+      api.get("/api/friends", function(req, res) {
         res.json(friends);
       });
+
     
       // This is where the logic will go for the friend comparison, and posting to the friends array
-      app.post("/submit", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/home.html"));
+      api.post("/api/submit", function(req, res) {
+        
+        var incomingUser = {
+            name: req.body.name,
+            scores: req.body.scores
+        }
+
       });
     
-      return app;
+      return api;
     
     })();
     

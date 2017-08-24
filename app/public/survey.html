@@ -17,8 +17,8 @@
   <h4>Name (Required)</h4>
   <input type="text" name="" id="name" class="form-control" required>
 
-  <h4>Link to Photo Image (Required)</h4>
-  <input type="text" name="" id="photo" class="form-control" required>
+  <!-- <h4>Link to Photo Image (Required)</h4>
+  <input type="url" name="" id="photo" class="form-control" required> -->
 
   <hr>
 
@@ -146,6 +146,33 @@
     <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">Submit</button>
 
 </div>
+<script>
+
+
+$("#submit").on("click", function(){
+
+    event.preventDefault();
+    var user = {};
+    var postUrl = "/api/submit"
+// form validation
+    if ($("#name").val() !== '') {
+
+        user.name = $("#name").val(),
+        user.scores = [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val()]
+
+        $.post(postUrl, user, function(data) {
+            //data coming back should be the match info
+            console.log(data);
+        })
+    }
+
+    console.log(user)
+
+});
+
+
+
+</script>
 
 </body>
 </html>
