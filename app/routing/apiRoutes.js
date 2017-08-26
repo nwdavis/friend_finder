@@ -1,28 +1,24 @@
-var express = require('express');
-var path = require('path');
-var friends = require('../data/friends.js')
+var friends = require('../data/friends.js');
+var checker = require('../data/checker.js');
 
-module.exports = (function() {
-    
-      var api = express.Router();
-    
-      api.get("/api/friends", function(req, res) {
+module.exports = function(app){
+
+    app.get('/api/friends', function(req, res){
         res.json(friends);
-      });
+    });
 
-    
-      // This is where the logic will go for the friend comparison, and posting to the friends array
-      api.post("/api/submit", function(req, res) {
-        
-        var incomingUser = {
-            name: req.body.name,
-            scores: req.body.scores
-        }
+    app.post('/api/friends', function(req, res){
 
-      });
-    
-      return api;
-    
-    })();
-    
+        var newUser = req.body;
+
+        var chosenFriend = checker(newUser);
+
+        res.json(chosenFriend);
+
+
+        //this will handle the friend search logic
+    });
+
+
+}
 
