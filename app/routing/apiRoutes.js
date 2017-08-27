@@ -13,8 +13,8 @@ module.exports = function(app){
 
         var chosenFriend = checker(newUser);
 
+        //sends back chosen friend after checker runs
         res.json(chosenFriend);
-
 
         //this will handle the friend search logic
     });

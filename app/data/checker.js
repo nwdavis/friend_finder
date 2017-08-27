@@ -32,7 +32,6 @@ module.exports = function(user){
 
     });
 
-    console.log("Chosen friend is: " + chosenFriend);
     return chosenFriend;
     
 }
